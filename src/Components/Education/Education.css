@@ -1,0 +1,133 @@
+.Education {
+  text-align: center;
+}
+.Education span:nth-of-type(1) {
+  color: var(--black);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.Education span:nth-of-type(2) {
+  color: var(--orange);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 960px; /* Adjust based on your preference */
+  margin: 0 auto; /* Center the timeline */
+  padding: 20px 0; /* Add some padding around the timeline */
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--orange);
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0px;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #333;
+  top: 50%;
+  z-index: 2;
+  overflow: hidden; /* Ensures the content does not spill outside the boundary */
+  display: flex; /* Utilizes Flexbox for centering */
+  justify-content: center; /* Centers the child horizontally */
+  align-items: center;
+}
+
+.timeline-content {
+  width: 40%; /* Optimal content width */
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  z-index: 2;
+  border: 3px solid var(--orangeCard);
+}
+
+.timeline-content :nth-child(1){
+  color: var(--orange);
+}
+
+.timeline-content :nth-child(5){
+  color: green;
+}
+.timeline-content p {
+  font-size: 0.7rem;
+  line-height: 0.5;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-container {
+    left: 5%;
+  }
+
+  .timeline-container::before {
+    left: 0%;
+  }
+  .timeline-dot {
+    left: 0%;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: center;
+    align-self: center;
+  }
+
+  .timeline-content {
+    width: 78%; /* Increase width for smaller screens */
+    left: 10%;
+    padding: 0;
+  }
+
+  .timeline-content p {
+    line-height: 0.85;
+  }
+
+  .timeline-item::before,
+  .timeline-item::after {
+    display: none;
+    /* Hide pseudo-elements that might interfere */
+  }
+}
